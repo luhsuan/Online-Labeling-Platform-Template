@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+  <title>語意類別設定</title>
+  <head>
+    <script charset="UTF-8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      body{
+        margin: auto;
+        font-family:'consolas','微軟正黑體',sans-serif;
+        font-size:medium;
+      }
+      .header{
+        background-color:#87CEFA; 
+        width:auto;
+        height: 50px;
+      }
+      .header a {
+        float: left; /*bar選項向左靠齊**/
+        display: block;
+        color: #000000; /*bar字體顏色*/
+        text-align: center;
+        padding: 14px 16px; /*設計元素內部距離*/
+        text-decoration: none;
+        font-size: 18px;
+      }
+      .header a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .header a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+      .header a.active2 {
+        background-color: #F5F5F5;
+        color: white;
+      }
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+      .dropdown .dropbtn {
+        font-size: 18px;    
+        border: none;
+        outline: none;
+        padding: 13px 16px;
+        background-color:#87CEFA;
+        color: black;
+        font-family:'consolas','微軟正黑體',sans-serif;      
+      }
+      .dropbtn:hover{
+        background-color: #ddd;
+        color: black;     
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .button {
+        border-radius: 15px; /* 圓角角度 */
+        width: 90px;
+        height: 30px;
+        color: white;
+        font-family:'consolas','微軟正黑體',sans-serif;
+        font-size:medium;
+        background-color:#47a3ff; 
+      }
+      input{
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body onload="onload()">
+    <div class="header">
+      <span>
+        <div class="dropdown">
+          <button class="dropbtn">語料來源設定</button>
+          <div class="dropdown-content">
+            <a id='bolder'>批次上傳</a>
+            <a id='bolder'>單篇上傳</a>
+            <a id='bolder'>爬蟲</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">語意類別設定</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">語料標記</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" style="background-color: #4CAF50;color: white;">Descriptor</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">種子詞彙片語設定</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">構成詞彙片語的樣式設定</button>
+          <div class="dropdown-content" >
+            <a id='bolder'>挖掘種子詞彙片語的樣式</a>
+            <a id='bolder'>挖掘詞彙片語的樣式</a>
+            <a id='bolder'>搜尋詞彙片語的樣式</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">詞語關聯設定</button>
+          <div class="dropdown-content">
+            <a id='bolder'>詞彙片語同義詞設定</a>
+            <a id='bolder'>描述詞設定</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">模組訓練設定</button>
+        </div>
+      </span>
+      <span style="float: right">
+        <a onclick="logout()" id='bolder'>登出</a>
+      </span>
+    </div>
+    <br>
+    <div align="center">
+      <table style="border:1px #004B97 solid; padding:5px; width: 800px" rules="all" cellpadding="10">
+        <thead>
+          <tr>
+            <th>Groups</th>
+            <th>Members</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="7">星期幾</td>
+            <td>星期一</td>
+          </tr>
+          <tr>
+            <td>星期二</td>
+          </tr>
+          <tr>
+            <td>星期三</td>
+          </tr>
+          <tr>
+            <td>星期四</td>
+          </tr>
+          <tr>
+            <td>星期五</td>
+          </tr>
+          <tr>
+            <td>星期六</td>
+          </tr>
+          <tr>
+            <td>星期日</td>
+          </tr>
+          <tr>
+            <td rowspan="12">幾月</td>
+            <td>一月</td>
+          </tr>
+          <tr>
+            <td>二月</td>
+          </tr>
+          <tr>
+            <td>三月</td>
+          </tr>
+          <tr>
+            <td>四月</td>
+          </tr>
+          <tr>
+            <td>五月</td>
+          </tr>
+          <tr>
+            <td>六月</td>
+          </tr>
+          <tr>
+            <td>七月</td>
+          </tr>
+          <tr>
+            <td>八月</td>
+          </tr>
+          <tr>
+            <td>九月</td>
+          </tr>
+          <tr>
+            <td>十月</td>
+          </tr>
+          <tr>
+            <td>十一月</td>
+          </tr>
+          <tr>
+            <td>十二月</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </body>
+</html>
